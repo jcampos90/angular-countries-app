@@ -1,0 +1,20 @@
+<div class="animate__animated animate__fadeInRight">
+    <h2>Por Capital</h2>
+    <hr>
+
+    <div class="row">
+        <div class="col">
+            <app-country-input (onEnter)="search($event)" (onDebounce)="suggestions($event)"
+                placeholder="Buscar Capital..."></app-country-input>
+        </div>
+    </div>
+
+    <hr>
+    <div *ngIf="showError" class="alert alert-danger">No se encontraron resultados con ese criterio de búsqueda</div>
+
+    <div class="row" *ngIf="!showError">
+        <div class="col">
+            <app-country-table [countries]="countries"></app-country-table>
+        </div>
+    </div>
+</div>
